@@ -25,6 +25,10 @@ namespace ShortestPath.Web.Controllers
             ViewBag.Nodes = graph.Select(n => n.Name).ToList();
             ViewBag.Path = string.Join(", ", result.NodeNames);
             ViewBag.Distance = result.Distance;
+            ViewBag.From = fromNode;
+            ViewBag.To = toNode;
+            ViewBag.Path = string.Join(",", result.NodeNames);
+            ViewBag.Distance = result.Distance;
 
             return View();
         }

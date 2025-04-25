@@ -13,17 +13,17 @@ class Program
         var graph = GraphSeeder.GetGraph();
 
         Console.Write("Enter FROM node: ");
-        var from = Console.ReadLine();
+        string fromNode = Console.ReadLine()?.Trim().ToUpper();
 
         Console.Write("Enter TO node: ");
-        var to = Console.ReadLine();
+        string toNode = Console.ReadLine()?.Trim().ToUpper();
 
-        var result = new PathFinder().ShortestPath(from, to, graph);
+        var result = new PathFinder().ShortestPath(fromNode, toNode, graph);
 
         if (result.NodeNames.Count > 0)
         {
-            Console.WriteLine($"Path: {string.Join(", ", result.NodeNames)}");
-            Console.WriteLine($"Total Distance: {result.Distance}");
+            Console.WriteLine($">fromNodeName = \"{fromNode}\", toNodeName = \"{toNode}\": {string.Join(",", result.NodeNames)}");
+            Console.WriteLine($">Total Distance: {result.Distance}");
         }
         else
         {
@@ -31,5 +31,6 @@ class Program
         }
 
         Console.ReadLine();
+
     }
 }

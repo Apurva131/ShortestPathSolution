@@ -16,9 +16,9 @@
 
     <input type="submit" value="Find Path" />
 }
-
-@if (ViewBag.Path != null)
+@if (ViewBag.Path != null && ViewBag.From != null && ViewBag.To != null)
 {
-    <p><strong>Path:</strong> @ViewBag.Path</p>
-    <p><strong>Total Distance:</strong> @ViewBag.Distance</p>
+    <p>>fromNodeName = "@ViewBag.From", toNodeName = "@ViewBag.To": @ViewBag.Path</p>
+    <p>>Total Distance: @ViewBag.Distance</p>
 }
+
