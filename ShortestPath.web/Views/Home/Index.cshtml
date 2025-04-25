@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Shortest Path";
+    var nodes = ViewBag.Nodes as List<string>;
+}
+<h2>Shortest Path Finder</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <label>From Node:</label>
+    @Html.DropDownList("fromNode", new SelectList(nodes))
+    <br />
+
+    <label>To Node:</label>
+    @Html.DropDownList("toNode", new SelectList(nodes))
+    <br />
+
+    <input type="submit" value="Find Path" />
+}
+
+@if (ViewBag.Path != null)
+{
+    <p><strong>Path:</strong> @ViewBag.Path</p>
+    <p><strong>Total Distance:</strong> @ViewBag.Distance</p>
+}
